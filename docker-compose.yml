@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: gestion_incidencias_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: gestion_incidencias
+      MYSQL_USER: user_gi
+      MYSQL_PASSWORD: pass_gi
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

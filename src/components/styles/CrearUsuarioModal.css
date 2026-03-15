@@ -1,0 +1,437 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+    padding: 1rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.crear-usuario-modal {
+    animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+        scale: 0.95;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.modal-container {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+}
+
+.modal-close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.modal-close-button:hover {
+    background-color: #f3f4f6;
+    color: #374151;
+    transform: rotate(90deg);
+}
+
+.modal-form {
+    padding: 1.5rem 2rem 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.required {
+    color: #ef4444;
+    font-weight: 700;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    background-color: #fefefe;
+}
+
+.form-input::placeholder {
+    color: #9ca3af;
+}
+
+.password-hint {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.375rem;
+    font-style: italic;
+}
+
+.checkbox-group {
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.25rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.checkbox-group:hover {
+    border-color: #cbd5e1;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.checkbox-input {
+    width: 1.375rem;
+    height: 1.375rem;
+    margin-right: 0.875rem;
+    cursor: pointer;
+    accent-color: #3b82f6;
+    border-radius: 4px;
+}
+
+.checkbox-label {
+    font-weight: 600;
+    color: #374151;
+    cursor: pointer;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.role-info {
+    font-size: 0.875rem;
+    color: #6b7280;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.admin-badge {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    color: #1d4ed8;
+    border: 1px solid #93c5fd;
+}
+
+.user-badge {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.error-message {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: #991b1b;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    border: 1px solid #fca5a5;
+    margin-bottom: 1.25rem;
+    font-weight: 500;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.cancel-button,
+.create-button {
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    min-width: 120px;
+}
+
+.cancel-button {
+    background-color: #f8fafc;
+    color: #475569;
+    border: 2px solid #e2e8f0;
+}
+
+.cancel-button:hover:not(:disabled) {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.create-button {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.create-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px -1px rgba(0, 0, 0, 0.15);
+}
+
+.cancel-button:disabled,
+.create-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .modal-overlay {
+        padding: 0.5rem;
+        align-items: flex-start;
+        padding-top: 2rem;
+    }
+    
+    .modal-container {
+        max-height: calc(100vh - 4rem);
+        border-radius: 12px;
+    }
+
+    .modal-header {
+        padding: 1.5rem 1.5rem 1rem;
+    }
+    
+    .modal-form {
+        padding: 1rem 1.5rem 1.5rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .cancel-button,
+    .create-button {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .checkbox-group {
+        padding: 1rem;
+    }
+    
+    .form-input {
+        padding: 0.875rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 0.25rem;
+        padding-top: 1rem;
+    }
+    
+    .modal-container {
+        max-height: calc(100vh - 2rem);
+        border-radius: 8px;
+    }
+    
+    .modal-header {
+        padding: 1.25rem 1rem 0.75rem;
+    }
+    
+    .modal-form {
+        padding: 0.75rem 1rem 1.25rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-input {
+        font-size: 16px; /* Prevent zoom on iOS */
+        padding: 0.75rem;
+    }
+
+    .checkbox-input {
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .modal-close-button {
+        font-size: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1.25rem;
+    }
+    
+    .checkbox-group {
+        padding: 0.875rem;
+    }
+}
+
+/* Loading state styles */
+.create-button:disabled {
+    background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+}
+
+.checkbox-input:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.modal-close-button:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.image-uploader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.image-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px dashed #e5e7eb;
+    background-color: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+}
+
+.image-preview:hover {
+    border-color: #cbd5e1;
+}
+
+.image-preview .placeholder-icon {
+    color: #9ca3af;
+}
+
+.image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.file-input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.file-upload-label {
+    padding: 0.625rem 1.25rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #3b82f6;
+    background-color: #eef2ff;
+    cursor: pointer;
+    border: 2px solid #eef2ff;
+    transition: all 0.2s ease;
+}
+
+.file-upload-label:hover {
+    background-color: #e0e7ff;
+    border-color: #c7d2fe;
+}
+
+.file-input:focus + .file-upload-label {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
